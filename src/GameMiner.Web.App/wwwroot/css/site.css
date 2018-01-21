@@ -1,0 +1,2681 @@
+﻿html {
+    background-color: #8eacbb;
+    background-image: url(../images/header-bg.png);
+    background-repeat: repeat-x;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    color: #eee;
+    font-size: 11pt;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    margin: auto;
+    padding: 0;
+    height: 100%;
+    border-radius: 2px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+a {
+    color: #fff;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    a:active, a:hover {
+        color: #999;
+    }
+
+header,
+footer,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+header {
+    width: 100%;
+    padding-top: 8px;
+    background-color: #26418F;
+    padding-bottom: 10px;
+}
+
+    header > div {
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 50px;
+    }
+
+        header > div > a {
+            vertical-align: top;
+        }
+
+mark {
+    background-color: #A6DBED;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-fix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    color: #fff;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2em;
+    font-family: 'Segoe UI Light', 'Segoe UI', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2 {
+    font-size: 1.75em;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+    h5 a:link, h5 a:visited, h5 a:active {
+        padding: 0;
+    }
+
+/* main layout
+----------------------------------------------------------*/
+.content-wrapper {
+    background-color: #607d8b;
+}
+
+#body {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background: #607d8b;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.16);
+}
+
+.main-content {
+    padding: 0;
+}
+
+hr.divider {
+    height: 20px;
+    margin: 0;
+    display: block;
+    background: #525252;
+}
+
+footer {
+    clear: both;
+    font-size: 14px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+    border-top: 1px solid #78909c;
+    padding: 10px 30px;
+}
+
+/* site title
+----------------------------------------------------------*/
+.site-title {
+    color: #fff;
+    font-size: 28px;
+    margin: 12px 24px;
+    display: inline-block;
+    padding: 10px 0 10px 50px;
+    text-transform: uppercase;
+    line-height: 25px;
+    height: 28px;
+    background: url('../images/gameaways-logo-white-64px.png') no-repeat;
+    background-position: left center;
+    background-size: 48px;
+}
+
+.toggle-site-menu {
+    height: 48px;
+    width: 48px;
+    display: inline-block;
+    background-image: url('../images/ic_menu_white_36dp_1x.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 12px 0;
+}
+
+/* login
+----------------------------------------------------------*/
+#site-header {
+    margin: 12px 0;
+    height: 48px;
+    float: right;
+}
+
+    #site-header a {
+        color: #fff;
+        margin: 0;
+        text-decoration: none;
+    }
+
+        #site-header a.username {
+            padding-right: 60px;
+            width: 155px;
+            padding-top: 14px;
+            padding-bottom: 14px;
+            display: inline-block;
+            text-align: right;
+            color: #fff;
+            background-repeat: no-repeat;
+            background-size: 40px 40px;
+            background-position: right center;
+        }
+
+            #site-header a.username:hover {
+                color: #fff;
+            }
+
+        #site-header a.username-active {
+        }
+
+    #site-header .sign-out-icon {
+        background-image: url('../images/ic_power_settings_new_white_48dp_1x.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 24px;
+        display: inline-block;
+        height: 48px;
+        width: 48px;
+        margin-left: 15px;
+    }
+
+    #site-header ul {
+        margin: 0;
+    }
+
+    #site-header li {
+        display: block;
+        list-style: none;
+    }
+
+    #site-header a#steamSignIn {
+        background: url('../images/ic_steam_white_36px.png') no-repeat #102027;
+        background-position: left 30px center;
+        background-size: 24px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 20px;
+        padding: 15px 50px;
+        padding-left: 74px;
+        display: inline-block;
+        line-height: 20px;
+        height: 20px;
+        text-align: center;
+    }
+
+        #site-header a#steamSignIn:hover {
+            background-color: #263238;
+        }
+
+    #site-header .credits-container {
+        color: #fff;
+        margin: 0;
+        text-decoration: none;
+        padding-right: 60px;
+        width: 155px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        display: inline-block;
+        text-align: right;
+        color: #fff;
+    }
+
+    #site-header .get-credits-header-link {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        display: inline-block;
+    }
+
+#UserMenu {
+    position: absolute;
+    width: 250px;
+    padding-left: 0;
+    background-color: #00796b;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.15);
+}
+
+    #UserMenu:after {
+        bottom: 100%;
+        right: 14px;
+        border: solid transparent;
+        content: " ";
+        position: absolute;
+        border-bottom-color: #00796b;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+
+    #UserMenu li a {
+        padding: 16px 20px;
+        display: block;
+    }
+
+        #UserMenu li a:hover {
+            background-color: #00897b;
+            color: #fff;
+        }
+
+    #UserMenu li.top-border-left {
+        display: none;
+    }
+
+    #UserMenu li.top-border-right {
+        display: none;
+    }
+
+.notifications-icon {
+    display: inline-block;
+    background-image: url("../images/ic_notifications_white_48dp_1x.png");
+    background-size: 36px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 48px;
+    width: 48px;
+}
+
+    .notifications-icon[has-not-seen-notifications],
+    .notifications-icon[has-not-seen-notifications]:hover {
+        background-image: url("../images/ic_notifications_active_white_48dp_1x.png");
+    }
+
+.notifications-list-container {
+    min-height: 56px;
+    max-height: 400px;
+    position: absolute;
+    width: 300px;
+    padding-left: 0;
+    background-color: #00796b;
+}
+
+    .notifications-list-container:after {
+        bottom: 100%;
+        right: 16px;
+        border: solid transparent;
+        content: " ";
+        position: absolute;
+        border-bottom-color: #00796b;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+
+.notifications-list {
+    min-height: 56px;
+    max-height: 400px;
+    z-index: 999;
+    position: absolute;
+    width: 300px;
+    padding-left: 0;
+    background-color: #00796b;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.15);
+}
+
+    .notifications-list li {
+        border-bottom: 1px #00897b solid;
+        font-size: 11px;
+        padding: 5px !important;
+        color: #ccc;
+        min-height: 48px;
+    }
+
+        .notifications-list li .notification-link {
+            display: block;
+        }
+
+        .notifications-list li .notification-text-container {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0;
+            width: 215px;
+        }
+
+        .notifications-list li .notification-icon {
+            height: 48px;
+            width: 48px;
+            display: inline-block;
+            background: url('../images/ic_subject_white_48dp_1x.png') no-repeat;
+            background-size: 36px;
+            background-position: center center;
+        }
+
+        .notifications-list li .notification-date {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .notifications-list li .notification-buttons {
+            display: inline-block;
+        }
+
+            .notifications-list li .notification-buttons > span {
+                display: block;
+            }
+
+        .notifications-list li .mark-as-read {
+            display: inline-block;
+            height: 24px;
+            width: 24px;
+            background: url("http://cdn.gameaways.com/images/mark-as-not-read-small.png?v=1.1") no-repeat;
+            background-position: 0px 0px;
+        }
+
+        .notifications-list li .dismiss-notification {
+            height: 24px;
+            width: 24px;
+            background: url("../images/ic_delete_white_24dp_1x.png") no-repeat;
+            background-size: 18px;
+            background-position: center center;
+        }
+
+            .notifications-list li .dismiss-notification:hover {
+                opacity: 0.75;
+            }
+
+        .notifications-list li .mark-as-read:hover {
+            background-position: -34px 0px;
+        }
+
+        .notifications-list li.loading, .notifications-list li.loading:hover,
+        .messages-list li.loading, .messages-list li.loading:hover {
+            /*background: url("http://cdn.gameaways.com/images/loading-indcator-gray-large.GIF") no-repeat;*/
+            color: #525252;
+            background-position: 50% 50%;
+        }
+
+        .notifications-list li:last-of-type {
+            border: none;
+        }
+
+    .notifications-list .notification-list-item[notification-type="0"] .notification-icon {
+        background: url("../images/ic_card_giftcard_white_36dp_1x.png") no-repeat;
+        background-size: initial;
+        background-position: center center;
+    }
+
+    .notifications-list li a {
+        display: inline-block;
+        word-wrap: break-word;
+        font-size: 12px;
+        padding: 0 !important;
+        vertical-align: top;
+        font-size: 14px;
+    }
+
+
+    .notifications-list li:hover {
+        background-color: #005b4f;
+        cursor: pointer;
+    }
+
+/* page titles */
+hgroup.title {
+    margin-bottom: 10px;
+}
+
+    hgroup.title h1, hgroup.title h2 {
+        display: inline;
+    }
+
+    hgroup.title h2 {
+        font-weight: normal;
+        margin-left: 3px;
+    }
+
+/* features */
+section.feature {
+    width: 300px;
+    float: left;
+    padding: 10px;
+}
+
+/* content */
+article {
+    float: left;
+    width: 70%;
+}
+
+#socialLoginForm {
+    float: right;
+    width: 358px;
+}
+
+#logoutForm {
+    display: inline;
+}
+
+/* forms */
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+    fieldset legend {
+        display: none;
+    }
+
+    fieldset ol {
+        padding: 0;
+        list-style: none;
+    }
+
+        fieldset ol li {
+            padding-bottom: 5px;
+        }
+
+label {
+    display: inline-block;
+    width: 150px;
+    font-size: 11pt;
+    font-weight: 300;
+}
+
+[type="radio"] {
+    display: none;
+}
+
+[type="checkbox"] {
+    display: none;
+}
+
+    [type="checkbox"]:not(:checked) ~ label.checkbox,
+    [type="checkbox"]:checked ~ label.checkbox,
+    [type="checkbox"]:not(:checked) + label,
+    [type="checkbox"]:checked + label,
+    [type="radio"]:not(:checked) + label:not(.ui-button),
+    [type="radio"]:checked + label:not(.ui-button) {
+        display: inline-block;
+        padding-left: 35px;
+        padding-top: 5px;
+        height: 27px;
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+    }
+
+    [type="checkbox"]:not(:checked) ~ label.checkbox,
+    [type="checkbox"]:not(:checked) + label,
+    [type="radio"]:not(:checked) + label:not(.ui-button) {
+        background-image: url(http://cdn.gameaways.com/images/checkbox-ffffff-32px.png?v=1.1);
+    }
+
+    [type="checkbox"]:checked ~ label.checkbox,
+    [type="checkbox"]:checked + label,
+    [type="radio"]:checked + label:not(.ui-button) {
+        background-image: url(http://cdn.gameaways.com/images/checkbox-008a00-32px.png?v=1.2);
+    }
+
+input, textarea {
+    border: none;
+    background: #fff;
+    color: #0f0f0f;
+    margin: 5px 0 6px 0;
+    padding: 10px;
+    width: 280px;
+    font-size: 11pt;
+    border-radius: 2px;
+}
+
+    input:-webkit-autofill,
+    input[type='text']:-webkit-autofill,
+    input[type='password']:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 50px #525252 inset;
+        -webkit-text-fill-color: #eee;
+        border-color: #525252;
+    }
+
+textarea {
+    font-family: inherit;
+}
+
+input[type="button"],
+button {
+    font-size: 11pt;
+    color: #fff;
+    background-color: #37474f;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: auto;
+    border: none;
+    margin: 0;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+    input[type="button"]:hover,
+    button:hover {
+        background: #102027;
+    }
+
+    input[type="button"].black,
+    button.black {
+        color: #e80c4d;
+    }
+
+td input[type="button"],
+td button {
+    font-size: 1em;
+    padding: 4px;
+    margin-right: 4px;
+}
+
+/* info and errors */
+.message-info {
+    border: 1px solid;
+    clear: both;
+    padding: 10px 20px;
+}
+
+.message {
+    display: inline;
+    height: auto;
+    background-color: #252525;
+}
+
+.message-error {
+    color: #e80c4d;
+    font-size: 11pt;
+    display: block;
+    height: 20px;
+    margin: 0 0 10px 0;
+    padding: 10px;
+}
+
+.message-success {
+    color: #008A00;
+    font-size: 11pt;
+    display: block;
+    height: 20px;
+    margin: 0 0 10px 0;
+    padding: 10px;
+}
+
+.error {
+    color: #e80c4d !important;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    background: #000;
+    position: relative;
+    padding: 10px 20px;
+    display: block;
+    color: #e80c4d;
+    font-size: 13px;
+}
+
+    .field-validation-error:after {
+        bottom: 100%;
+        left: 10%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(136, 183, 213, 0);
+        border-bottom-color: #000;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+
+.field-validation-valid {
+    display: none;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 10px 10px 40px;
+    background: url("../images/ic_error_white_36dp_1x.png") no-repeat #004c40;
+    background-position: 20px 50%;
+}
+
+    .validation-summary-errors ul {
+        list-style: none;
+    }
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* tables
+----------------------------------------------------------*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 0.75em;
+    border: 0 none;
+    width: 100%;
+}
+
+th {
+    padding-left: 20px;
+    font-weight: 600;
+    font-size: 17px;
+    text-align: left;
+}
+
+    th a {
+        display: block;
+        position: relative;
+    }
+
+        th a:link, th a:visited, th a:active, th a:hover {
+            color: #fff;
+            text-decoration: none;
+            padding: 0;
+        }
+
+    th.asc a, th.desc a {
+        margin-right: .75em;
+    }
+
+td {
+    padding: 0.25em 2em 0.25em 20px;
+    border: 0 none;
+}
+
+tr.pager td {
+    padding: 0 0.25em 0 0;
+}
+
+#FormsContainer {
+    width: 100%;
+}
+
+#EditAccountContainer label {
+    width: 262px;
+}
+
+.giveaways-added-by-user {
+    width: 570px;
+    margin-top: 0;
+}
+
+    .giveaways-added-by-user th {
+        background-color: #77A804;
+        padding: 10px 10px;
+        color: #fff;
+    }
+
+    .giveaways-added-by-user td {
+        padding: 10px 10px;
+        background-color: #f4f4f4;
+    }
+
+    .giveaways-added-by-user tr:hover td {
+        background-color: #ccc;
+    }
+
+.giveaways-table-column-date-added {
+    text-align: right;
+    width: 160px;
+}
+
+.giveaways-table-column-operations {
+    text-align: right;
+    width: 130px;
+}
+
+.giveaways-table-column-name {
+    text-align: left;
+}
+
+select {
+    padding: 5px 5px 5px;
+    width: 300px;
+}
+
+.footer-aside {
+    background-image: url('../images/footer-bg.gif');
+}
+
+#ExternalLoginForm {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.external-login-userlogo {
+    height: 120px;
+    margin-right: 50px;
+    border-radius: 50%;
+}
+
+input[type='text'] {
+    height: 18px;
+}
+
+input[type='password'] {
+    height: 18px;
+}
+
+hr {
+    background-color: #ccc;
+    border: 0;
+    height: 2px;
+}
+
+.button-green-medium {
+    font-size: 11pt;
+    color: #fff;
+    background-color: #37474f;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: auto;
+    border: none;
+    margin: 0;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+    .button-green-medium.processing, .button-green-medium.processing:hover {
+        background: #008a00 url("http://cdn.gameaways.com/images/button-loader-green.GIF") no-repeat 50% 50%;
+        color: rgba(0, 0, 0, 0);
+        cursor: default;
+    }
+
+span.button-green-medium {
+    cursor: default;
+}
+
+.button-green-medium:hover {
+    background: #102017;
+    color: #fff;
+}
+
+.button-black {
+    font-size: 11pt;
+    color: #e80c4d;
+    background-color: #000;
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: auto;
+}
+
+    .button-black:hover {
+        color: #e80c4d;
+        cursor: default;
+    }
+
+.icon-enabled,
+.icon-enabled:hover {
+    opacity: 1;
+}
+
+.combo-box {
+    background-image: url("../images/Arrowhead-Down-green.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+input[type='text'].combo-box-open {
+    background-image: url("../images/Arrowhead-up-green.png");
+    border-bottom: none;
+}
+
+.combo-box::-ms-clear {
+    display: none;
+}
+
+#GiveawayForm .accept-button {
+    width: 300px;
+}
+
+#GiveawayForm #Description {
+    width: 631px;
+}
+
+#GiveawayForm #RedemptionCodes {
+    width: 631px;
+}
+
+#GiveawayForm .field-validation-error {
+    left: 218px;
+    width: calc( 100% - 258px );
+}
+
+.enter-filter-button {
+    cursor: pointer;
+    display: inline-block;
+}
+
+    .enter-filter-button[data-val='Public'] {
+        background: url("http://cdn.gameaways.com/images/giveaway-filters.png?v=1.1") no-repeat #000;
+        background-position: 0px 0px;
+    }
+
+
+    .enter-filter-button[data-val='SteamGroup'] {
+        background: url("http://cdn.gameaways.com/images/giveaway-filters.png?v=1.1") no-repeat #000;
+        background-position: -58px 0px;
+    }
+
+    .enter-filter-button:not(.active):hover,
+    .giveaway-showcase-button:not(.active):hover {
+        background-color: #404040;
+    }
+
+    .enter-filter-button.active,
+    .giveaway-showcase-button.active {
+        background-color: #008a00;
+    }
+
+.button-selected {
+    background-color: #ccc;
+    color: #000;
+}
+
+    .button-selected:hover {
+        background-color: #ccc;
+    }
+
+    .button-selected > span {
+        width: 28px;
+        height: 48px;
+        display: inline-block;
+        background-image: url("../images/check-box.png");
+        background-repeat: no-repeat;
+        position: relative;
+        top: -8px;
+        float: right;
+    }
+
+.social-links-footer {
+    max-width: 100px;
+}
+
+    .social-links-footer a {
+        padding-left: 40px;
+        padding-top: 5px;
+        padding-bottom: 0 !important;
+        background-repeat: no-repeat;
+        height: 25px;
+        background-size: contain;
+        vertical-align: middle;
+        margin-bottom: 5px;
+        max-width: 100px;
+    }
+
+        .social-links-footer a:hover {
+            opacity: 0.75;
+        }
+
+a.footer-link-facebook {
+    background-image: url('../images/ic_fb_white_36px.png');
+    background-size: contain;
+    padding: 0;
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+a.footer-link-steam {
+    background-image: url('../images/ic_steam_white_36px.png');
+    background-size: contain;
+    padding: 0;
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+p.help-content {
+    display: none;
+    margin-bottom: 0;
+    font-family: "Segoe UI Light", Verdana, Helvetica, Sans-Serif;
+    font-size: 17px;
+    padding-left: 30px;
+}
+
+.help-link {
+    font-family: "Segoe UI Light", Verdana, Helvetica, Sans-Serif;
+    font-size: 21px;
+    margin-top: 10px;
+    display: inline-block;
+    padding-left: 30px;
+}
+
+.faq-container h1 {
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    font-size: 24px;
+    margin-top: 10px;
+    display: block;
+    font-weight: normal;
+}
+
+.icon {
+    background-repeat: no-repeat;
+    height: 48px;
+    width: 48px;
+    display: inline-block;
+    background-size: contain;
+}
+
+    .icon.icon40 {
+        width: 40px;
+        height: 40px;
+    }
+
+a.icon32,
+.giveaway-buttons a.icon32 {
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    background-color: #333;
+    background-size: contain;
+}
+
+    .icon32:hover,
+    .giveaway-buttons a.icon32:hover {
+        background-color: #0a0a0a;
+    }
+
+.no-border {
+    border: none;
+}
+
+.arrow-box {
+    position: absolute;
+    background: #525252;
+    border: 2px solid #525252;
+    padding: 10px;
+    -webkit-box-shadow: 5px 5px 20px -5px rgba(64,64,64,0.75);
+    -moz-box-shadow: 5px 5px 20px -5px rgba(64,64,64,0.75);
+    box-shadow: 5px 5px 20px -5px rgba(64,64,64,0.75);
+}
+
+    .arrow-box:after, .arrow-box:before {
+        left: 55%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .arrow-box:after {
+        border-color: rgba(82, 82, 82, 0);
+        border-width: 10px;
+        margin-left: -10px;
+    }
+
+    .arrow-box:before {
+        border-color: rgba(82, 82, 82, 0);
+        border-width: 13px;
+        margin-left: -13px;
+    }
+
+.arrow-box-bottom:after, .arrow-box-bottom:before {
+    top: 100%;
+}
+
+.arrow-box-bottom:after {
+    border-top-color: #525252;
+}
+
+.arrow-box-bottom:before {
+    border-top-color: #525252;
+}
+
+.arrow-box-top:after, .arrow-box-top:before {
+    bottom: 100%;
+}
+
+.arrow-box-top:after {
+    border-bottom-color: #525252;
+}
+
+.arrow-box-top:before {
+    border-bottom-color: #525252;
+}
+
+/* Create Giveaway Form */
+
+#GiveawayForm {
+    width: 100%;
+    display: inline-block;
+}
+
+    #GiveawayForm > fieldset > ol > li {
+        margin-bottom: 15px;
+    }
+
+    #GiveawayForm #Description {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    #GiveawayForm #HeaderImageUrl {
+        width: 631px;
+    }
+
+    #GiveawayForm label:not(.checkbox) {
+        padding-left: 64px;
+        padding-right: 30px;
+        height: 48px;
+        background-repeat: no-repeat;
+        padding-top: 15px;
+        vertical-align: top;
+    }
+
+label[for='GameId'] {
+    background-image: url("../images/ic_videogame_asset_white_48dp_1x.png");
+}
+
+label[for='HeaderImageUrl'] {
+    background-image: url("../images/ic_panorama_white_48dp_1x.png");
+}
+
+#GiveawayForm label[for='DurationInDays'] {
+    background-image: url("../images/ic_date_range_white_48dp_1x.png");
+}
+
+label[for='Description'] {
+    background-image: url("../images/ic_subject_white_48dp_1x.png");
+}
+
+label[for='RedemptionCodes'] {
+    background: url("../images/ic_vpn_key_white_48dp_1x.png");
+}
+
+.share-link {
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background-size: contain;
+}
+
+    .share-link:hover {
+        opacity: 0.75;
+    }
+
+.share-link-fb {
+    background-image: url('http://cdn.gameaways.com/images/facebook.png');
+}
+
+.share-link-tw {
+    background-image: url('../images/twitter.png');
+}
+
+.share-link-gplus {
+    background-image: url('../images/google-plus.png');
+}
+
+#share > span {
+    font-size: 14pt;
+    font-weight: 300;
+    vertical-align: top;
+    margin-top: 2px;
+    display: inline-block;
+}
+
+.social-share-widget {
+    display: inline-block;
+    height: 30px;
+    vertical-align: top;
+    margin-right: 35px;
+}
+
+.social-widget-fb {
+    display: none;
+}
+
+.social-widget-twitter {
+    display: none;
+    width: 150px;
+}
+
+#upload-target {
+    height: 0;
+    width: 0;
+    border: 0;
+}
+
+#UploadUserImage {
+    display: none;
+}
+
+.user-image-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.footer-link-slide-fb,
+.footer-link-slide-twitter {
+    width: 100px;
+    height: 48px;
+    display: none;
+}
+
+.footer-link-slide-twitter {
+    background-color: #00ACEE;
+    width: 155px;
+}
+
+.footer-link-slide-fb {
+    background-color: #4462A5;
+}
+
+.fb-like {
+    margin-top: 14px;
+    margin-left: 15px;
+}
+
+.twitter-follow-button {
+    margin-top: 14px;
+    margin-left: 15px;
+}
+
+.drop-down-list {
+    max-height: 200px;
+    height: auto;
+    border-top-color: #fff;
+    border-top: none;
+    padding: 0;
+    background: white;
+    position: absolute;
+    z-index: 9999;
+    box-shadow: 0 0 1px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24);
+}
+
+    .drop-down-list > a {
+        color: #000;
+        display: block;
+        padding: 10px;
+        cursor: default;
+    }
+
+        .drop-down-list > a:hover {
+            background-color: #78909c;
+            color: #000;
+        }
+
+.hidden {
+    display: none;
+}
+
+.giveaway {
+    border-bottom: 1px solid #78909c;
+    padding: 30px;
+    color: #fff;
+    height: 215px;
+}
+
+    .giveaway:last-of-type {
+        border-bottom: none;
+    }
+
+    .giveaway:hover {
+        background: #78909c;
+    }
+
+    .giveaway .ga-summary {
+        display: block;
+        margin: 20px 0 30px;
+    }
+
+    .giveaway .ga-info {
+        display: inline-block;
+        vertical-align: top;
+        padding-left: 30px;
+    }
+
+    .giveaway .ga-tile {
+        display: inline-block;
+        height: 215px;
+        width: 460px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-color: #000;
+        background-size: contain;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    .giveaway > .game-title {
+        display: none;
+    }
+
+    .giveaway .ga-tag-container {
+        display: inline;
+    }
+
+    .giveaway .ga-info span {
+        display: block;
+        font-size: 16px;
+    }
+
+    .giveaway .ga-info .game-title {
+        display: inline-block;
+        font-size: 20px;
+        vertical-align: top;
+        font-weight: 500;
+    }
+
+        .giveaway .ga-info .game-title:hover {
+            color: #000;
+        }
+
+    .giveaway .ga-store-icon {
+        text-transform: uppercase;
+        background: #fff;
+        color: white;
+        padding: 3px 10px;
+        margin-left: 5px;
+        font-size: 9px;
+    }
+
+    .giveaway .ga-summary .entry-fee {
+        font-size: 19px;
+        width: 70px;
+        background-repeat: no-repeat;
+        background-position: right center;
+        display: inline-block;
+    }
+
+    .giveaway .ga-summary .ga-username {
+        font-size: 11px;
+    }
+
+    .giveaway .ga-summary .ga-user-icon {
+        height: 64px;
+        width: 64px;
+        border-radius: 50%
+    }
+
+    .giveaway .ga-summary .ga-list-menu-menu {
+        background-position: -170px 0px;
+    }
+
+        .giveaway .ga-summary .ga-list-menu-menu:hover {
+            background-position: -204px 0px;
+            cursor: default;
+        }
+
+    .giveaway .ga-summary .ga-list-menu-remind {
+        background-position: -136px 0px;
+    }
+
+        .giveaway .ga-summary .ga-list-menu-remind:hover {
+            background-position: -102px 0px;
+        }
+
+    .giveaway .ga-summary .ga-list-menu-hide-game {
+        background-position: -34px 0px;
+    }
+
+        .giveaway .ga-summary .ga-list-menu-hide-game:hover {
+            background-position: 0px 0px;
+        }
+
+        .giveaway .ga-summary .ga-list-menu-hide-game.unhide-game {
+            background-position: -68px 0px;
+        }
+
+    .giveaway .ga-summary .ga-item-type {
+        background-image: url('http://cdn.gameaways.com/images/icons-24px.png');
+        padding: 9px 12px 0px 12px;
+        position: relative;
+        top: 4px;
+        cursor: default;
+    }
+
+        .giveaway .ga-summary .ga-item-type[giveaway-item-type=SteamGift] {
+            background-position: 0px 0px;
+        }
+
+        .giveaway .ga-summary .ga-item-type[giveaway-item-type=Game] {
+            background-position: -24px 0px;
+        }
+
+    .giveaway .ga-info .given-away-by {
+        vertical-align: top;
+        display: inline-block;
+        margin: 20px;
+    }
+
+.giveaway-head {
+    min-height: 265px;
+}
+
+    .giveaway-head .ga-user-icon {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%
+    }
+
+    .giveaway-head .username {
+        color: #008A00;
+    }
+
+    .giveaway-head .header-image {
+        height: 400px;
+        width: 1000px;
+        background-repeat: no-repeat;
+        display: block;
+        background-position: 50% 50%;
+        background-size: 1000px 450px;
+    }
+
+    .giveaway-head .entry-fee {
+        width: 120px;
+        display: inline-block;
+        text-align: right;
+    }
+
+    .giveaway-head .giveaway-title {
+        width: calc(100% - 125px);
+        display: inline-block;
+    }
+
+.button-auto {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+}
+
+.giveaway-head .content-container {
+    background: #4b636e;
+}
+
+.giveaway-head .buttons .closed-ga {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.giveaway-head .buttons .not-enough-gp {
+    color: #e80c4d;
+    background: #333;
+    cursor: default;
+}
+
+.giveaway-head .buttons .enter-ga {
+    width: 200px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 60px;
+}
+
+    .giveaway-head .buttons .enter-ga[entry-status='EnabledMoreEntries'] {
+        width: auto;
+    }
+
+.giveaway-head .buttons .leave-ga {
+    color: #e80c4d;
+    background: #000;
+    width: 155px;
+    text-align: center;
+}
+
+    .giveaway-head .buttons .leave-ga:hover {
+        color: #fff;
+        background: #333;
+    }
+
+    .giveaway-head .buttons .leave-ga.processing, .giveaway-head .buttons .leave-ga.processing:hover {
+        background: #000 url("../images/loading-indicator-00796b.gif") no-repeat 50% 50%;
+        color: #000;
+        cursor: default;
+    }
+
+.giveaway-notices > div,
+.notice-item {
+    background-color: #333;
+    padding: 20px 30px 20px 75px;
+    background-image: url("http://cdn.gameaways.com/images/info-008a00-48px.png");
+    background-repeat: no-repeat;
+    background-position: 20px 50%;
+    border-bottom: 2px solid #404040;
+}
+
+.giveaway-notice.warning {
+    background-image: url("http://cdn.gameaways.com/images/warning-65px-E80C4D.png");
+    background-size: 48px;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.comments-list {
+    max-height: 330px;
+    position: relative;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.comment {
+    padding-bottom: 10px;
+}
+
+    .comment.loading {
+        height: 48px;
+        background: url("../images//loading-indicator-00796b.gif") center center no-repeat;
+        width: 100%;
+    }
+
+    .comment p {
+        padding-left: 65px;
+        display: inline-block;
+        margin: 0;
+        vertical-align: top;
+        background-repeat: no-repeat;
+        background-size: 50px;
+        min-height: 50px;
+    }
+
+.ga-points, .ga-points > span {
+    color: #008A00;
+}
+
+.buttons {
+    margin-top: 15px;
+    width: 455px;
+    margin-bottom: 0;
+}
+
+.giveaway-head .buttons .sign-in-button {
+    width: 130px;
+    text-align: center;
+}
+
+.ga-summary .have-entry-link {
+    font-size: 19px;
+    text-transform: uppercase;
+}
+
+.paging {
+    padding: 5px 10px 1px;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+    .paging .previous,
+    .paging .next {
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 30px;
+        width: 30px;
+        margin: 0 5px 0 0;
+        display: inline-block;
+        padding: 0;
+    }
+
+    .paging .display {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        vertical-align: top;
+        position: relative;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .paging .next {
+        background: url('../images/arrow-right-green.png') #252525;
+        margin: 0;
+    }
+
+        .paging .next:hover {
+            background: url('../images/arrow-right-white.png') #252525;
+        }
+
+    .paging .previous {
+        background: url('../images/arrow-left-green.png') #252525;
+    }
+
+        .paging .previous:hover {
+            background: url('../images/arrow-left-white.png') #252525;
+        }
+
+.pages a {
+    margin: 0 5px 0 0;
+    width: 30px;
+    height: 20px;
+    display: inline-block;
+    background-color: #333;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #fff !important;
+    vertical-align: top;
+}
+
+.paging a:hover {
+    background-color: #404040;
+    cursor: pointer;
+    color: #fff;
+}
+
+.pages-container {
+    display: inline-block;
+}
+
+.ga-info .entries-container {
+    margin-top: 10px;
+}
+
+.ga-info .leave-ga {
+    font-size: 11px;
+    color: #aaa;
+}
+
+    .ga-info .leave-ga:hover {
+        color: #ccc;
+    }
+
+.ga-info .entries-container {
+    display: block;
+}
+
+.ga-started {
+    margin-top: 10px;
+}
+
+.paging .current-page {
+    background: rgba(0, 138, 0, 0.75);
+    color: #fff;
+}
+
+    .paging .current-page:hover {
+        background: rgba(0, 138, 0, 1);
+    }
+
+input.input-validation-error {
+    background: url("../images/error-icon.png") no-repeat #525252;
+    background-position: right 5px center;
+    border: 2px solid #525252;
+}
+
+    input.input-validation-error::-ms-clear {
+        display: none;
+    }
+
+textarea.mesage-text {
+    width: 100%;
+}
+
+.messages-container {
+    height: 400px;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    display: block;
+}
+
+.giveaway-filter-tooltip,
+.number-of-entries-tooltip {
+    display: inline-block;
+    width: 575px;
+}
+
+    .giveaway-filter-tooltip input[type=text] {
+        width: 560px;
+    }
+
+.entries-number-icon {
+    background-color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 32px;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+    .entries-number-icon:hover {
+        background-color: #404040;
+    }
+
+    .entries-number-icon.active {
+        background-color: #008A00;
+    }
+
+.multiple-entries-icon {
+    font-size: 26px;
+    padding-top: 5px;
+    height: 43px;
+}
+
+.profile-preview {
+    width: 300px;
+    position: absolute;
+    font-size: 14px;
+}
+
+    .profile-preview:after, .profile-preview:before {
+        top: 100%;
+        left: 89.5%;
+    }
+
+    .profile-preview a {
+        color: #00CC00;
+    }
+
+        .profile-preview a:hover {
+            color: #fff;
+        }
+
+input#GroupName {
+    height: 34px;
+    vertical-align: top;
+    margin-top: 0;
+}
+
+input.reminder-time {
+    width: 70px;
+}
+
+.reminder-inteval-type {
+    width: 90px;
+    border: 2px solid #333;
+    color: #fff;
+    background: #333;
+}
+
+.reminder-container .button-green-medium {
+    position: relative;
+    top: 1px;
+    background: #000;
+    height: 21px;
+}
+
+    .reminder-container .button-green-medium:hover {
+        color: #008A00;
+    }
+
+.notifcation-popup {
+    position: fixed;
+    width: 300px;
+    background: #333;
+    color: #fff;
+}
+
+    .notifcation-popup[notification-type='DailyLimitReached'] {
+        background: url("../images/ic_av_timer_white_36dp_1x.png") no-repeat #333 5px 50%;
+    }
+
+    .notifcation-popup.error {
+        border-left: 5px solid #e80c4d;
+        color: #fff;
+        background: url("../images/sync.png") no-repeat #333 5px 50%;
+    }
+
+    .notifcation-popup .notification-popup-text {
+        width: 230px;
+        padding-right: 15px;
+    }
+
+.giveaway-buttons {
+    padding: 30px;
+}
+
+.tab-button {
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    width: 200px;
+    color: #eee;
+    top: 2px;
+    right: 10px;
+    position: relative;
+    border: none;
+    background: #404040;
+    height: 50px;
+    margin-right: 5px;
+}
+
+    .tab-button:hover {
+        background: #525252;
+    }
+
+.tab-button-active,
+.tab-button-active:hover {
+    background: #008a00;
+    color: #eee;
+    border: 2px solid #008a00;
+    border-bottom: none;
+    position: relative;
+    top: 1px;
+    height: 52px;
+}
+
+.report-invalid-gift {
+    color: #e80c4d;
+    padding: 6px 15px;
+    background: #0a0a0a;
+}
+
+.winner-congratulations [prize-status='Invalid'] {
+    color: #e80c4d;
+}
+
+.ga-gift-code {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.giveaway-winners td {
+    border: none;
+    padding-left: 0;
+}
+
+.gift-worked {
+    color: #008A00;
+}
+
+.send-keys-popup {
+    width: 410px;
+}
+
+.send-redemption-code {
+    position: relative;
+    top: 1px;
+}
+
+.hidden-ga-placeholder {
+    background: #252525;
+    padding-top: 37px;
+    height: 52px;
+    text-align: center;
+    position: absolute;
+    width: 1000px;
+    z-index: 9999999;
+}
+
+.image-tile {
+    width: 190px;
+    height: 100px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    margin: 0;
+    display: table-cell;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+#game-search {
+    width: 631px;
+    margin-bottom: 0;
+}
+
+.ga-view-info {
+    color: #fff;
+    height: auto;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.duration-info > span {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 10px 25px;
+    background: #78909c;
+    width: 405px;
+}
+
+.giveaway-duration {
+    margin-right: 25px;
+}
+
+.ga-view-info .contributor-info {
+    width: 465px;
+    display: inline-block;
+}
+
+.contributor-info > span {
+    vertical-align: top;
+    margin-top: 10px;
+    margin-left: 15px;
+    display: inline-block;
+}
+
+.giveaway .ga-info .ga-wishlist-tag,
+.giveaway .ga-info .ga-storeapptype-tag {
+    text-transform: uppercase;
+    background: #000;
+    color: white;
+    padding: 3px 10px;
+    font-size: 9px;
+    cursor: default;
+}
+
+.giveaway-buttons .ga-wishlist-tag,
+.giveaway-buttons .ga-storeapptype-tag {
+    text-transform: uppercase;
+    background: #252525;
+    color: white;
+    padding: 5px 20px;
+    font-size: 11pt;
+    cursor: default;
+}
+
+.giveaway-buttons a.button {
+    text-transform: uppercase;
+    background-color: #252525;
+    padding: 5px 20px;
+    font-size: 11pt;
+}
+
+.giveaway .ga-info .ga-wishlist-tag {
+    color: #008A00;
+    background-image: url('../images/wishlist.png') !important;
+    background-repeat: no-repeat !important;
+    padding-left: 20px !important;
+    padding-right: 5px !important;
+    background-position: left 5px center !important;
+}
+
+.header-container {
+    background: #333;
+    padding: 10px;
+}
+
+.description {
+    padding: 20px 30px 30px 30px;
+}
+
+#steam-trading-link {
+    width: 485px;
+}
+
+.button-panel.right {
+    text-align: right;
+}
+
+.help-icon {
+    background: url("../images/Help.png") no-repeat;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    top: 10px;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.search-text {
+    margin: 12px auto;
+    background: #00796b;
+    padding: 15px;
+    border-bottom: none;
+    border-radius: 2px;
+    width: 930px;
+}
+
+    .search-text:focus {
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16);
+    }
+
+.search-container {
+    text-align: center;
+}
+
+#autocomplete-append-to {
+    display: none;
+}
+
+.profile-header {
+    background: #00897b;
+    padding: 30px;
+}
+
+.profile-summary {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+}
+
+.profile-actions {
+    display: inline-block;
+    vertical-align: top;
+    margin: 15px 10px 10px 10px;
+}
+
+    .profile-actions .button-green-medium {
+        margin-bottom: 5px;
+        display: block;
+    }
+
+.achievement-item {
+    display: inline-block;
+    width: 33.3333%;
+    padding: 10px;
+    height: 80px;
+}
+
+    .achievement-item .icon {
+        height: 50px;
+        width: 50px;
+    }
+
+.achievement-summary {
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+}
+
+.user-profile-statistics {
+    margin-top: 25px;
+}
+
+    .user-profile-statistics span {
+        padding: 5px 10px;
+        display: block;
+        margin-top: 5px;
+    }
+
+.content-header {
+    padding: 30px;
+    background: #34515e;
+}
+
+    .content-header.account {
+        background-image: url('../images/ic_account_circle_white_48dp_1x.png');
+        background-repeat: no-repeat;
+        background-position: left 30px center;
+        padding-left: 93px;
+    }
+
+    .content-header.create-giveaway {
+        background-image: url('../images/ic_card_giftcard_white_48dp_1x.png');
+        background-repeat: no-repeat;
+        background-position: left 30px center;
+        padding-left: 93px;
+    }
+
+.content-container {
+    padding: 30px;
+}
+
+.items-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.icon32:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.border-box {
+    -webkit-box-sizing: border-box;
+    ‌​-moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.copyright {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.powered-by,
+.show-languages {
+    display: inline-block;
+}
+
+.languages .language-link {
+    padding-right: 10px;
+}
+
+.ps-scrollbar-y, .ps-scrollbar-y-rail {
+    width: 3px !important;
+}
+
+.ps-scrollbar-y-rail {
+    right: 0 !important;
+}
+
+.about-section .text {
+    width: calc(100% - 170px);
+    display: inline-block;
+    vertical-align: top;
+    font-family: "Segoe UI Light", Verdana, Helvetica, Sans-Serif;
+    font-size: 17px;
+}
+
+    .about-section .text.text-right {
+        margin-left: 15px;
+    }
+
+    .about-section .text.text-left {
+        margin-right: 15px;
+    }
+
+        .about-section .text.text-left h2 {
+            text-align: right;
+        }
+
+.about-section-icon {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+}
+
+    .about-section-icon.gift {
+        background-image: url("../images/gift-008a00-150px.png");
+    }
+
+    .about-section-icon.articles {
+        background-image: url("../images/Document-150px.png");
+    }
+
+    .about-section-icon.contact {
+        background-image: url("../images/Messages-150px.png");
+    }
+
+.terms-container ol {
+    padding-left: 20px !important;
+}
+
+.terms-container li li {
+    list-style: disc;
+}
+
+.privacy-policy-container > ul {
+    padding-left: 0;
+}
+
+    .privacy-policy-container > ul > li {
+        list-style: none;
+        margin-top: 10px;
+    }
+
+.privacy-policy-container li > ul {
+    padding-left: 0;
+}
+
+.privacy-policy-container li li {
+    list-style: none;
+}
+
+.entries-list-container {
+    margin-top: 20px;
+}
+
+.entries-list {
+    max-height: 330px;
+    overflow: scroll;
+    position: relative;
+    max-width: 900px;
+}
+
+.giveaway-entry {
+    width: 25%;
+    display: inline-block;
+}
+
+    .giveaway-entry.loading {
+        height: 48px;
+        background: url("../images/loading-indicator-00796b.gif") center no-repeat;
+        width: 100%;
+    }
+
+    .giveaway-entry p {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0;
+        vertical-align: top;
+        font-size: 14px;
+        height: 48px;
+    }
+
+.giveaway-entry-user-icon {
+    background-size: contain !important;
+}
+
+.giveaway-entry-user-icon,
+.comment-user-icon {
+    background-size: contain !important;
+}
+
+.loading-overlay {
+    position: absolute;
+    background: #252525;
+    opacity: 0.70;
+    background-image: url("../images/loading-indicator-00796b.gif");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: 99999;
+}
+
+.giveaway-filters-table {
+    font-size: 17px;
+}
+
+    .giveaway-filters-table td {
+        padding: 0;
+    }
+
+.giveaway-details {
+    display: block;
+    vertical-align: top;
+}
+
+.game-list-item {
+    height: 69px;
+    margin-bottom: 5px;
+    background-color: #333;
+    padding: 10px;
+}
+
+.game-tile {
+    display: inline-block;
+    height: 69px;
+    width: 184px;
+    background-position: 50% 50%;
+    background-color: #000;
+}
+
+.game-list-item h3 {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 20px;
+}
+
+.bottom-panel {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.image-tile .remove-item {
+    vertical-align: top;
+    background-size: cover;
+    margin-top: 75px;
+    height: 25px;
+    width: 24px;
+    background-color: rgba(0,0,0, 0.65);
+}
+
+    .image-tile .remove-item:hover {
+        background-position: -29px 0px;
+    }
+
+.image-tile .confirm {
+    background-image: none;
+    display: inline-block;
+    text-align: center;
+    cursor: default;
+    margin-top: 75px;
+    font-size: 11px;
+    background-color: rgba(0,0,0, 0.65);
+    width: 100%;
+    vertical-align: bottom;
+    padding: 5px 0;
+}
+
+.confirm .yes {
+    color: #e80c4d;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.confirm .no {
+    color: #008A00;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.linked-account-button {
+    padding: 15px 20px;
+    width: 260px;
+    margin-bottom: 10px;
+}
+
+.stat-container {
+    display: inline-block;
+    margin-left: 30px;
+    cursor: default;
+    min-width: 60px;
+    color: #fff;
+}
+
+    .stat-container:hover {
+        color: #999;
+    }
+
+    .stat-container.selected {
+        color: #ccc;
+    }
+
+    .stat-container .stat-header {
+        font-size: 11px;
+        display: block;
+        margin-bottom: -5px;
+        text-transform: uppercase;
+    }
+
+    .stat-container .stat-value {
+    }
+
+.user-giveaways-container {
+    max-height: 400px;
+    position: relative;
+    overflow: hidden;
+    min-height: 70px;
+}
+
+.list-item {
+    background: #333;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.quarter-width {
+    width: 25%;
+}
+
+.list-item > span {
+    display: inline-block;
+}
+
+    .list-item > span > a:not(.button-green-medium) {
+        color: #008A00;
+    }
+
+    .list-item > span > a:hover {
+        color: #999;
+    }
+
+.list-item.list-header {
+    background: #525252;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+}
+
+.page-header-note {
+    background-color: #252525;
+    padding: 20px 30px 20px 75px;
+    background-size: 48px;
+    background-repeat: no-repeat;
+    background-position: 20px 50%;
+    border-bottom: 2px solid #333;
+}
+
+.warning {
+    background-image: url("http://cdn.gameaways.com/images/warning-65px-E80C4D.png");
+}
+
+.information {
+    background-image: url("http://cdn.gameaways.com/images/info-008a00-48px.png");
+}
+
+.result-info {
+    background-color: #252525;
+    padding: 20px 30px 20px 75px;
+    background-repeat: no-repeat;
+    background-position: 20px 50%;
+    display: none;
+    border-bottom: 2px solid #333;
+}
+
+    .result-info.success {
+        display: block;
+        background-image: url("http://cdn.gameaways.com/images/info-008a00-48px.png");
+    }
+
+.elipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.block-note {
+    color: #fff;
+    padding: 15px 15px 15px 95px;
+    background-position: 20px 50%;
+    background-repeat: no-repeat;
+}
+
+.error-note {
+    background-color: #e80c4d;
+    background-image: url("http://cdn.gameaways.com/images/error-white-65px.png");
+}
+
+.info-note {
+    background-color: #00ACEE;
+    background-image: url("http://cdn.gameaways.com/images/info-65px-white.png");
+}
+
+.warning-note {
+    background-color: #ff6a00;
+    background-image: url("http://cdn.gameaways.com/images/error-white-65px.png");
+}
+
+    .warning-note p {
+        display: inline-block;
+    }
+
+        .warning-note p.warning-text {
+            min-width: 580px;
+        }
+
+.block-note a {
+    background-color: #fff;
+    color: #008A00 !important;
+}
+
+    .block-note a:hover {
+        color: #008A00;
+        background-color: #fff;
+        opacity: 0.85;
+    }
+
+.block-note .delete-button, .block-note .delete-button:hover {
+    color: #e80c4d !important;
+}
+
+.row {
+    padding: 10px 20px;
+    margin-bottom: 5px;
+}
+
+    .row:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .row .cell {
+        display: inline-block;
+    }
+
+
+.store {
+    width: 120px;
+}
+
+.game-details {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 30px;
+    width: 365px;
+}
+
+    .game-details > span {
+        display: block;
+        background: #333;
+        padding: 13px 20px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+        .game-details > span:last-of-type {
+            margin-bottom: 0;
+        }
+
+.game-head {
+    height: 215px;
+}
+
+.elevated-content {
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16);
+    margin: 30px;
+}
+
+.game-giveaway-field span.gift-notice {
+    display: block;
+    margin-left: 250px;
+}
+
+.groups-container {
+    background: url('../images/ic_lock_outline_white_36dp_1x.png') no-repeat;
+    background-position: right 30px center;
+}
+
+    .groups-container[is-checked] {
+        background: url('../images/ic_check_white_36dp_1x.png') no-repeat;
+        background-position: right 30px center;
+    }
+
+.drawer-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.33);
+    display: none;
+    z-index: 9999;
+}
+
+.drawer-menu {
+    background: #fff;
+    width: 400px;
+    height: 100%;
+    padding: 0;
+}
+
+    .drawer-menu a {
+        color: #404040;
+        padding: 20px 20px 20px 60px;
+        display: block;
+        font-weight: 600;
+    }
+
+        .drawer-menu a:hover {
+            background: #eee;
+        }
+
+.drawer-menu-header {
+    background: url('../images/ic_menu_white_36dp_1x.png') no-repeat #26418F;
+    background-position: left 56px top 26px;
+}
+
+    .drawer-menu-header a, .drawer-menu-header a:hover {
+        display: block;
+        padding: 23px 100px 12px 50px;
+        height: 48px;
+        font-size: 28px;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 400;
+        background: url('../images/gameaways-logo-white-64px.png') no-repeat #26418F;
+        background-position: left top 20px;
+        background-size: 48px;
+        margin-left: 126px;
+    }
+
+.account-settings input[type='text'] {
+    width: 725px;
+}
+
+.get-rid-of-it {
+    padding: 30px;
+    padding-left: 80px;
+    background: #00ace0;
+    background-image: url('../images/ic_error_white_36dp_1x.png');
+    background-repeat: no-repeat;
+    background-position: left 30px center;
+    font-weight: 500;
+}
+
+.earn-money-header {
+    background-image: url('../images/ic_monetization_on_white_36dp_1x.png');
+    background-repeat: no-repeat;
+    background-position: right 30px center;
+}
+
+#ExternalLoginConfirmation .form-group {
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.button-panel-right {
+    text-align: right;
+}
+
+.button-panel-center {
+    text-align: center;
+}
+
+#Username {
+    width: 500px;
+    padding: 15px;
+    vertical-align: top;
+    margin: 0;
+}
+
+.user-profile-picture {
+    background: url('../images/ic_account_circle_white_48dp.png') no-repeat;
+    background-size: 48px;
+    background-position: left center;
+    background-size: contain;
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+    margin-right: 10px;
+}
+
+#games-list {
+    width: 651px;
+}
+
+.giveaways-list-container {
+    padding: 0;
+}
+
+.inner-content-header {
+    padding: 30px 30px 5px;
+}
+
+.inner-content-container {
+    padding: 5px 30px 30px 30px;
+    font-size: 16px;
+}
+
+.giveaway-funding {
+    padding: 15px 30px 30px 30px;
+    background: #4b636e;
+    border-top: 1px solid #78909c;
+}
+
+.giveaway-funding-progress-bar {
+    background: #34515e;
+    height: 30px;
+    margin-top: 15px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.giveaway-funding-progress-bar-active {
+    background: #78909c;
+    height: 100%;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.giveaway-funding-description {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.ga-funding {
+    margin-top: 10px;
+    background: url('../images/ic_monetization_on_white_18dp_1x.png') no-repeat;
+    background-position: left center;
+    padding-left: 25px;
+}
+
+.giveaway-funding-header {
+    background: url('../images/ic_monetization_on_white_24dp_1x.png') no-repeat;
+    background-position: left center;
+    padding-left: 36px;
+}
+
+
+.content-header.get-credits {
+    background-image: url('../images/ic_monetization_on_white_48dp_1x.png');
+    background-repeat: no-repeat;
+    background-position: left 30px center;
+    padding-left: 93px;
+}
+
+.credit-miner {
+    background: #4b636e;
+}
+
+.enter-with-captcha {
+    background-color: #fff;
+    padding: 30px;
+    padding-bottom: 25px;
+}
+
+.captcha-entry-info {
+    width: 631px;
+    color: #000;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.coinhive-captcha {
+    display: inline-block;
+}

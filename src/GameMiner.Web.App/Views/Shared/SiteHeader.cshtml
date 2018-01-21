@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using GameMiner.DataLayer.Model
+@using Microsoft.AspNetCore.Mvc.Localization
+@using GameMiner.Web.App.Services
+
+@inject IViewLocalizer ViewLocalizer
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject IEconomyService EconomyService
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var user = await UserManager.GetUserAsync(User);
+    long userBalance = EconomyService.UpdateUserBalance(user.Id);
+
+    <a href="/Home/GetCredits" class="get-credits-header-link">Get Credits</a>
+    <span class="credits-container">@userBalance Credits</span>
+
+    <a class="username" style="background-image: url('@user.ProfilePictureUrl');" data-val-username="@User.Identity.Name">@User.Identity.Name</a>
+    <a href="javascript:document.getElementById('logoutForm').submit()" class="sign-out-icon"></a>
+    @*<ul id="UserMenu" class="hidden">
+        <li class="user-menu-item">@Html.ActionLink("Manage Account", "Manage", "Account", routeValues: null, htmlAttributes: null)</li>
+        <li class="user-menu-item">@Html.RouteLink("My Profile", "ViewProfile", routeValues: new { userName = User.Identity.Name }, htmlAttributes: null)</li>
+        <li class="user-menu-item sign-out"><a href="javascript:document.getElementById('logoutForm').submit()">Sign Out</a></li>
+    </ul>*@
+    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+    }
+}
+else
+{
+    <a href="/Account/Login" id="steamSignIn">Sign In through Steam</a>
+}
+

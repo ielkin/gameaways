@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameMiner.Web.App", "src\GameMiner.Web.App\GameMiner.Web.App.csproj", "{F1533EFF-E17E-4DB5-81BE-736F5DA03018}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameMiner.BusinessLayer", "src\GameMiner.BusinessLayer\GameMiner.BusinessLayer.csproj", "{8A2A2EA3-6EEC-48A2-8D37-9F18BE421CBD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameMiner.DataLayer.Model", "src\GameMiner.DataLayer.Model\GameMiner.DataLayer.Model.csproj", "{7BC2F4E5-CACF-478F-824B-DF88D35DEEE4}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GameMiner.DataLayer.Database", "src\GameMiner.DataLayer.Database\GameMiner.DataLayer.Database.sqlproj", "{39F1955D-90BA-47E9-917B-CB9BA4679A19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMiner.Core", "src\GameMiner.Core\GameMiner.Core.csproj", "{C276E117-DE9B-48B5-AA30-1C6E2981BECD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMiner.AzureJobs", "src\GameMiner.AzureJobs\GameMiner.AzureJobs.csproj", "{6BB18FEA-F2DD-47D0-A35C-FEA6175E9ADF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1533EFF-E17E-4DB5-81BE-736F5DA03018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1533EFF-E17E-4DB5-81BE-736F5DA03018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1533EFF-E17E-4DB5-81BE-736F5DA03018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1533EFF-E17E-4DB5-81BE-736F5DA03018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A2A2EA3-6EEC-48A2-8D37-9F18BE421CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2A2EA3-6EEC-48A2-8D37-9F18BE421CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2A2EA3-6EEC-48A2-8D37-9F18BE421CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2A2EA3-6EEC-48A2-8D37-9F18BE421CBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BC2F4E5-CACF-478F-824B-DF88D35DEEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC2F4E5-CACF-478F-824B-DF88D35DEEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC2F4E5-CACF-478F-824B-DF88D35DEEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC2F4E5-CACF-478F-824B-DF88D35DEEE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39F1955D-90BA-47E9-917B-CB9BA4679A19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39F1955D-90BA-47E9-917B-CB9BA4679A19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39F1955D-90BA-47E9-917B-CB9BA4679A19}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{39F1955D-90BA-47E9-917B-CB9BA4679A19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39F1955D-90BA-47E9-917B-CB9BA4679A19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39F1955D-90BA-47E9-917B-CB9BA4679A19}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C276E117-DE9B-48B5-AA30-1C6E2981BECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C276E117-DE9B-48B5-AA30-1C6E2981BECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C276E117-DE9B-48B5-AA30-1C6E2981BECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C276E117-DE9B-48B5-AA30-1C6E2981BECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BB18FEA-F2DD-47D0-A35C-FEA6175E9ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB18FEA-F2DD-47D0-A35C-FEA6175E9ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB18FEA-F2DD-47D0-A35C-FEA6175E9ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB18FEA-F2DD-47D0-A35C-FEA6175E9ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21788409-CC33-4F82-BB65-2B18BF951A9F}
+	EndGlobalSection
+EndGlobal

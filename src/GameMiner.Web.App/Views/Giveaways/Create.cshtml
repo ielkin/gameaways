@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer ViewLocalizer
+
+@model GameMiner.Web.App.ViewModels.GiveawayModel
+@{
+    ViewBag.Title = ViewLocalizer["CreateGiveaway"].Value + " - Gameaways";
+}
+
+<h2 class="content-header create-giveaway">@ViewLocalizer["CreateGiveaway"]</h2>
+<div class="create-giveaway-container content-container">
+
+    @using (Html.BeginForm("Create", "Giveaways", FormMethod.Post, new { id = "GiveawayForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <fieldset>
+            <legend>@ViewLocalizer["CreateGiveaway"]</legend>
+
+            <ol>
+                <li class="game-giveaway-field">
+                    @Html.LabelFor(m => m.GameId)
+                    @Html.HiddenFor(m => m.GameId)
+                    <div style="display: inline-block">
+                        <input id="game-search" autocomplete="off" placeholder="@ViewLocalizer["GameSearchPlaceholder"]" />
+                        <div id="games-list" class="hidden drop-down-list"></div>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.GameId)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.DurationInDays)
+                    @Html.TextBoxFor(m => m.DurationInDays)
+                    @Html.ValidationMessageFor(m => m.DurationInDays)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Description)
+                    @Html.TextAreaFor(m => m.Description, new { rows = 6 })
+                </li>
+            </ol>
+        </fieldset>
+        <div class="button-panel-right">
+            <a class="button-green-medium create-giveaway enabled">@ViewLocalizer["CreateGiveaway"]</a>
+        </div>
+    }
+
+    @section Scripts {
+        <script src="~/js/Giveaways.Create.js"></script>
+    }
+</div>

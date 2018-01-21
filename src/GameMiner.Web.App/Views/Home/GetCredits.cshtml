@@ -1,0 +1,80 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using GameMiner.DataLayer.Model
+@using GameMiner.Web.App.Services
+
+@{
+    ViewData["Title"] = "Get Giveaway Credits";
+}
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject IEconomyService EconomyService
+
+
+<h2 class="content-header get-credits">@ViewData["Title"]</h2>
+<div class="content-container" style="padding: 0;">
+    <div class="credit-miner">
+        <script src="https://authedmine.com/lib/simple-ui.min.js" async></script>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            var user = await UserManager.GetUserAsync(User);
+
+            <div class="coinhive-miner"
+                 style="width: 960px; height: 200px"
+                 data-key="FKjtDtrHFEifSMzHVb5K3EnlGegiyi54"
+                 data-autostart="true"
+                 data-whitelabel="false"
+                 data-background="#4b636e"
+                 data-text="#efefef"
+                 data-action="#fff"
+                 data-graph="#efefef"
+                 data-user="@user.UserName"
+                 data-throttle="0.25">
+                <em>Loading...</em>
+            </div>
+        }
+        else
+        {
+            <div class="coinhive-miner"
+                 style="width: 960px; height: 200px"
+                 data-key="FKjtDtrHFEifSMzHVb5K3EnlGegiyi54"
+                 data-autostart="true"
+                 data-whitelabel="false"
+                 data-background="#4b636e"
+                 data-text="#efefef"
+                 data-action="#fff"
+                 data-graph="#efefef"
+                 data-throttle="0.25">
+                <em>Loading...</em>
+            </div>
+        }
+
+    </div>
+    <div>
+        <h2 class="inner-content-header">How much can I mine?</h2>
+        <div class="inner-content-container">
+            To earn 1 credit you need to mine <b>@(EconomyService.GetHashesPerCredit() + 256) hashes</b> which is worth <b>10 entries</b>
+            Computers with more powerfull CPU will mine faster. Of you can run the miner at higher speeds if you don't use the computer while you mine.
+            On average it will take you less than 10 minutes to get <b>1 Credit</b>
+        </div>
+    </div>
+    <div>
+        <h2 class="inner-content-header">How do I earn Giveaway Credits?</h2>
+        <div class="inner-content-container">
+            Credits are earned by running CoinHive mining script. Just configure the miner above and leave this tab or page running.
+        </div>
+    </div>
+    <div>
+        <h2 class="inner-content-header">How do I earn more Giveaway Credits?</h2>
+        <div class="inner-content-container">
+            It depends on how much you use your computer. 
+            If you want to mine and game then configure the miner to run at lower speed and keep this page open in your browser while you are playing games or doing other things on your PC.
+        </div>
+    </div>
+
+    <div>
+        <h2 class="inner-content-header">I have mined enough but my balance doesn't change. Why?</h2>
+        <div class="inner-content-container">
+            Allow few minues for the system to catch up.
+        </div>
+    </div>
+</div>

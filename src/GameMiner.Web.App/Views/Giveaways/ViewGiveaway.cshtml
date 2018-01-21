@@ -1,0 +1,220 @@
+﻿@using Gameaways.Web.Model
+@using GameMiner.BusinessLayer.Core
+@using Humanizer
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer ViewLocalizer
+
+@model GiveawayViewModel
+
+@{
+    ViewBag.Title = "Free Steam Game " + Model.Title + " Giveaway";
+
+    ViewBag.OpenGraphTitle = $"Enter to win { Model.Title } Steam game";
+    ViewBag.OpenGraphDescription = "Enter giveaways to win awesome Steam games and other items";
+    ViewBag.OpenGraphTitleImage = Model.TileUrl;
+}
+
+@Html.HiddenFor(m => m.Id)
+
+<div class="giveaway-head">
+
+    <div style="background-image: url('@Model.TileUrl');" class="header-image"></div>
+    <h2 class="content-header create-giveaway">@Model.Title Giveaway</h2>
+    <div class="content-container">
+
+        <div class="giveaway-details">
+            <div class="ga-view-info ga-overview">
+                <div class="duration-info">
+                    @if (Model.EndDate.Subtract(DateTime.UtcNow).TotalSeconds > 0)
+                    {
+                        <span class="giveaway-duration">@ViewLocalizer["Started"] @Model.StartDate.Humanize() / @ViewLocalizer["EndsIn"] @Model.EndDate.Humanize().Replace(" from now", "")</span>
+                    }
+                    else
+                    {
+                        <span>@ViewLocalizer["Ended"] @Model.EndDate.Humanize()</span>
+                    }
+                    <span class="entries-count"><span class="total-entries-count">@(ViewLocalizer["Entry"].Value.ToQuantity(@Model.EntriesCount))</span> / My entries: <span class="my-entries-count">@Model.CurrentUserEntriesCount</span></span>
+                </div>
+                <p class="ga-view-info contributor-info">
+                    <img class="ga-user-icon" src="@Model.ProfilePictureUrl" />
+                    <span>@ViewLocalizer["GivenAwayBy"] @Model.Username</span>
+                </p>
+                <p class="buttons float-right" style="margin-top: 20px;">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (Model.EntryStatus == EntryStatus.Enabled)
+                        {
+                            <a class="button-green-medium enter-ga float-right enabled" entry-status="@Model.EntryStatus">@(Model.CurrentUserEntriesCount > 0 ? "+10 Entries" : ViewLocalizer["10 Entries"].Value)</a>
+                            @*<a class="button-green-medium float-right get-credits-button enabled hidden" href="/Home/GetCredits" style="margin-left: 60px;" target="_blank">Get Credits</a>*@
+                        }
+
+                        @*if (Model.EntryStatus == EntryStatus.InsufficientBalance)
+                            {
+                                <a class="button-green-medium float-right get-credits-button enabled" href="/Home/GetCredits" style="margin-left: 60px;" target="_blank">Get Credits</a>
+                            }*@
+
+                    if (Model.CurrentUserEntriesCount > 0)
+                    {
+                        <a class='button-green-medium float-right button-auto leave-ga enabled'>Leave Giveaway</a>
+                        <a class="button-green-medium enter-ga float-right enabled hidden" entry-status="@Model.EntryStatus">@(Model.CurrentUserEntriesCount > 0 ? "+1 Entry" : ViewLocalizer["10 Entries"].Value)</a>
+                    }
+                    else
+                    {
+                        <a class='button-green-medium float-right button-auto leave-ga enabled hidden'>Leave Giveaway</a>
+                        }
+                    }
+                    else
+                    {
+                        <a href="/Account/Login?returnUrl=@Context.Request.Path" class="button-green-medium float-right sign-in-button">@ViewLocalizer["Login"]</a>
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.EntryStatus == EntryStatus.InsufficientBalance)
+{
+    <div class="enter-with-captcha">
+        <div class="captcha-entry-info">
+            Please confirm your entry by clicking 'Verify Me' checkbox. Wait while it generates a token.
+            Also you can earn credits and then get 10 entries at a time to increase your chances. <a href="/Home/GetCredits" target="_blank" style="font-weight: bold; color: #808080;">How to get credits?</a>
+            <br />
+            <br />
+            <b>You can enter as many times as you want as long as you have enough credits or generate tokens.</b>
+        </div>
+
+        <script src="https://authedmine.com/lib/captcha.min.js" async></script>
+        <div class="coinhive-captcha" data-hashes="2560" data-whitelabel="false" data-callback="enterWithToken" data-key="FKjtDtrHFEifSMzHVb5K3EnlGegiyi54">
+            <em>
+                Loading Captcha...<br>
+                If it doesn't load, please disable Adblock!
+            </em>
+        </div>
+    </div>
+}
+
+    @*<div class="giveaway-funding">
+            <h3 class="giveaway-funding-header">Giveaway Funding Progress: <span class="giveaway-funding-header-value">@Model.FundingProgress</span>%</h3>
+            <div class="giveaway-funding-progress-bar">
+                <div class="giveaway-funding-progress-bar-active" style="width: @Model.FundingProgress%;"></div>
+            </div>
+            <div class="giveaway-funding-description">
+                Giveaways on our website are funded by credits earned by coin mining.
+                If the giveaway is not funded by the time we select the winner all the credits are refunded and you can use them again in another giveaway.
+                Also you can leave the giveaway before it ends if you would like to fund another giveaway. <a href="/Home/GetCredits" target="_blank" style="font-weight: bold;">How to get credits?</a>
+            </div>
+        </div>*@
+
+    @*@if (Model.Winners.Count() > 0)
+        {*@
+    @*var myWin = Model.Winners.FirstOrDefault(w => w.Username == User.Identity.Name);
+
+        if (myWin != null)
+        {
+            <div class="winner-congratulations elevated-content">
+                <h2 class="content-header">@GiveawaysViewResources.CongratulationsTitle</h2>
+                <div class="content-container">
+                    @Html.Raw(@GiveawaysViewResources.CongratulationsNote)
+                    <br />
+                    <br />
+                    @if (!string.IsNullOrEmpty(myWin.RedemptionCode) && (myWin.GiftStatus == Gameaways.Core.GiftStatus.Sent || myWin.GiftStatus == Gameaways.Core.GiftStatus.Accepted || myWin.GiftStatus == Gameaways.Core.GiftStatus.Invalid))
+                    {
+                        <span>@GiveawaysViewResources.FindCodeBelow</span>
+
+                        <h4 class="ga-gift-code" prize-status="@myWin.GiftStatus">@myWin.RedemptionCode</h4>
+                    }
+
+                    @if (myWin.GiftStatus == Gameaways.Core.GiftStatus.NotSent)
+                    {
+                        <span>@GiveawaysViewResources.PrizeNotSent</span>
+                    }
+
+                    @if (myWin.GiftStatus == Gameaways.Core.GiftStatus.Sent)
+                    {
+                        <a class="button-green-medium accept-gift" data-winnerid="@myWin.Id">@GiveawaysViewResources.PrizeReceived</a>
+                        <a class="report-invalid-gift">@GiveawaysViewResources.PrizeInvalid</a>
+                    }
+
+                    @if (myWin.GiftStatus == Gameaways.Core.GiftStatus.Accepted)
+                    {
+                        <span class='gift-worked'>@GiveawaysViewResources.PrizeReceived</span>
+                    }
+
+                    @if (myWin.GiftStatus == Gameaways.Core.GiftStatus.Invalid)
+                    {
+                        <span prize-status="@myWin.GiftStatus">@GiveawaysViewResources.PrizeInvalid</span>
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+            @*<div class="elevated-content">
+                <h2 class="content-header">@GiveawaysViewResources.Winner.ToQuantity(Model.Winners.Count, ShowQuantityAs.None)</h2>
+                <div class="manage-winners content-container">
+                    <table class="giveaway-winners">
+
+                        @foreach (var winner in Model.Winners)
+                        {
+                            <tr>
+                                <td>
+                                    @if (winner.GiftStatus == GiftStatus.Accepted || Model.Username == User.Identity.Name)
+                                    {
+                                        @Html.RouteLink(@winner.Username, "ViewProfile", new { username = winner.Username }, new { @class = "ga-username" })
+                                    }
+                                    else
+                                    {
+                                        <span>@GiveawaysViewResources.AnonymousWinners</span>
+                                    }
+                                </td>
+                                <td class="redemption-code-cell@(winner.Id)">
+                                    @if (Model.Username == User.Identity.Name)
+                                    {
+                                        @winner.RedemptionCode
+                                    }
+                                </td>
+                                <td class="gift-status@(winner.Id)">
+                                    <span>@GiveawaysViewResources.Prize @Gameaways.Resources.PrizeStatus.ResourceManager.GetFromEnum(winner.GiftStatus)</span>
+                                </td>
+                                <td class="">
+                                    @if (User.Identity.Name == Model.Username)
+                                    {
+                                        if (DateTime.UtcNow.Subtract(winner.LastUpdated).TotalDays > 10 && winner.GiftStatus != GiftStatus.Accepted)
+                                        {
+                                            <a class="pick-new-winner button-green-medium button-auto enabled" data-winnerid="@winner.Id">@GiveawaysViewResources.PickNewWinner</a>
+                                        }
+                                        else if (winner.GiftStatus == Gameaways.Core.GiftStatus.NotSent || winner.GiftStatus == Gameaways.Core.GiftStatus.Invalid)
+                                        {
+                                            <a class="send-keys-button button-green-medium" data-winnerid="@winner.Id">@GiveawaysViewResources.SendKey</a>
+                                            if (!string.IsNullOrEmpty(winner.SteamTradingLink))
+                                            {
+                                                <a href="@winner.SteamTradingLink" target="_blank" class="send-item-button button-green-medium button-auto" data-winnerid="@winner.Id">@GiveawaysViewResources.SendItem</a>
+                                            }
+
+                                            <span class="button-auto button-green-medium mark-prize-sent" winner-id="@winner.Id">@GiveawaysViewResources.PrizeSent</span>
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        }*@
+    @*}*@
+
+    @if (Model.Description != null)
+    {
+        <div>
+            <h2 class="inner-content-header">@ViewLocalizer["Description"]</h2>
+            <div class="inner-content-container">
+                @Html.Raw(@Model.Description)
+            </div>
+        </div>
+    }
+
+    @section scripts {
+        <script src="~/js/ViewGiveaway.js"></script>
+    }

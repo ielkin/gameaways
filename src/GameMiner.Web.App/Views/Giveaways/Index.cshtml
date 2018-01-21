@@ -1,0 +1,199 @@
+﻿@using Gameaways.Web.Model
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Humanizer
+
+@inject IViewLocalizer ViewLocalizer
+
+@model GiveawayListModel
+
+@{
+    ViewBag.Title = "Free Steam Games Giveaways";
+
+    ViewBag.OpenGraphTitle = ViewBag.Title;
+    ViewBag.OpenGraphDescription = "Enter giveaways to win awesome Steam games and other items";
+    ViewBag.OpenGraphTitleImage = "https://gameawaysstorage.blob.core.windows.net/images/opengraph-blue-card.jpg";
+}
+<h2 class="content-header create-giveaway">@ViewLocalizer["Giveaways"]</h2>
+<div class="content-container giveaways-list-container">
+    @if (Model.Giveaways != null && Model.Giveaways.Count() > 0)
+    {
+        foreach (var ga in Model.Giveaways)
+        {
+            string enteredGiveawayClass = ga.CurrentUserEntriesCount > 0 ? "has-entry" : "";
+
+            <div class="giveaway @enteredGiveawayClass" id="@ga.Id">
+                <a href="/Giveaway/@ga.Id" class="ga-tile" style="@string.Format("background-image: url(\'{0}\');", ga.TileUrl)"></a>
+                <div class="ga-info">
+                    <a href="/Giveaway/@ga.Id" class="game-title">@ga.Title</a>
+
+                    <span class="entries-container">
+                        <span class="entries-count">@(ViewLocalizer["Entry"].Value.ToQuantity(@ga.EntriesCount))</span>
+                        @*<span class="ga-funding">Funding Progress: @ga.FundingProgress%</span>*@
+                    </span>
+                    <span class="ga-started">@ViewLocalizer["Started"] @ga.StartDate.Humanize() / @ViewLocalizer["EndsIn"] @ga.EndDate.Humanize().Replace(" from now", "")</span>
+                    <p class="ga-summary">
+                        <img class="ga-user-icon" src="@ga.ProfilePictureUrl" />
+                        <span class="given-away-by">@ViewLocalizer["GivenAwayBy"] @ga.Username</span><br />
+                    </p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="no-giveaways-notice">
+            @ViewLocalizer["NoGiveawaysFound"]
+        </div>
+    }
+    @if (Model.PagesCount > 1)
+    {
+        <div class="paging">
+            <span class="display float-left">@Model.ItemsCount Giveaways</span>
+            <span class="pages-container">
+                @if (Model.CurrentPage + 1 <= Model.PagesCount)
+                {
+                    @Html.ActionLink(" ", "Index", new { page = Model.CurrentPage + 1 }, new { @class = "float-right next" })
+                }
+                <span class="pages float-right">
+                    @if (Model.PagesCount > 1)
+                {
+                    for (int i = 1; i <= Model.PagesCount; i++)
+                    {
+                            @Html.ActionLink(i.ToString(), "Index", new { page = i }, new { @class = i == Model.CurrentPage ? "page-link current-page" : "page-link" })
+                        }
+                    }
+                </span>
+                @if (Model.CurrentPage - 1 > 0)
+                {
+                    @Html.ActionLink(" ", "Index", new { page = Model.CurrentPage - 1 }, new { @class = "float-right previous" })
+                }
+            </span>
+        </div>
+    }
+</div>
+
+@section Scripts {
+
+    <script src="~/js/Partial/Giveaways.List.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".ga-filters input[type='checkbox']").each(function (index, element) {
+
+                if (getCookie($(element).attr("id")) == "true") {
+                    $(element).attr("checked", "checked");
+                }
+            });
+
+            adjustPaging();
+        });
+
+        $(window).resize(function () {
+            adjustPaging();
+        });
+
+        $(".apply-filter").click(function () {
+            location.reload();
+        });
+
+        $(".search-icon").click(function () {
+            $(this).attr("href", "/?search=" + $(".search-text").val())
+        });
+
+        $(".clear-search-icon").click(function () {
+            window.location = "/";
+        });
+
+
+        $(".ga-filters input[type='checkbox']").click(function () {
+            if ($(this).is(':checked')) {
+                document.cookie = $(this).attr("id") + "=true;"
+            }
+            else {
+                document.cookie = $(this).attr("id") + "=false;"
+            }
+        });
+
+        $(document).on("click", ".show-more-pages", function () {
+
+            var currentPageIndex = $(".paging .page-link").index($(".paging .page-link.current-page"));
+            var showMorePagesIndex = $(".paging .page-link").index($(this));
+
+
+            if (currentPageIndex > showMorePagesIndex) {
+
+                window.location = $(".paging .page-link").eq(showMorePagesIndex - 1).attr("href");
+            }
+            else {
+                window.location = $(".paging .page-link").eq(showMorePagesIndex + 1).attr("href");
+            }
+        });
+
+        function adjustPaging() {
+            var maxPageNumber = Math.floor(($(".paging").width() - $(".paging .display").outerWidth()) / 36 - 3);
+
+            if ($(window).width() <= 640) {
+                maxPageNumber = Math.floor($(".paging").width() / 36 - 2);
+            }
+
+            var currentPage = $(".paging .page-link").index($(".paging .current-page")) + 1;
+            var totalPages = $(".paging .page-link").length;
+
+            var indexFrom = currentPage - Math.floor(maxPageNumber / 2);
+            var indexTo = currentPage + Math.floor(maxPageNumber / 2);
+
+            if (indexFrom < 0) {
+                indexTo -= indexFrom;
+                indexFrom = 0;
+            }
+
+            if (indexTo >= totalPages) {
+                indexFrom -= (indexTo - totalPages - 1);
+                indexTo = totalPages;
+
+                if (indexFrom < 0) {
+                    indexFrom = 0;
+                }
+            }
+
+            console.log(indexFrom);
+            console.log(indexTo);
+
+            $(".page-link").hide();
+
+            $(".paging .page-link").slice(indexFrom, indexTo).show();
+
+            $(".show-more-pages").remove();
+
+            if (currentPage + maxPageNumber / 2 < totalPages && $(window).width() > 640) {
+                $(".paging .page-link").last().show();
+                $(".paging .page-link").eq(indexTo - 2).before("<a class='show-more-pages page-link'>...</a>");
+                $(".page-link").eq(indexTo - 1).hide();
+                $(".page-link").eq(indexTo).hide();
+            }
+
+            if (currentPage - maxPageNumber / 2 > 0 && $(window).width() > 640) {
+                $(".paging .page-link").first().show();
+                $(".page-link").eq(indexFrom).hide();
+                $(".paging .page-link").eq(indexFrom).after("<a class='show-more-pages page-link'>...</a>");
+            }
+        }
+
+        function getCookie(cookieName) {
+            var name = cookieName + "=";
+            var ca = document.cookie.split(';');
+
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+
+                if (c.indexOf(name) != -1) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+}
